@@ -17,11 +17,41 @@ namespace Lab3Q1
         public static int WordCount(ref string line, int start_idx)
         {
             // YOUR IMPLEMENTATION HERE
+            int spaceDetect = 0; //out
+            int isChar = 1;
 
+            int state = OUT;
+            
+                int i = 0;
+
+                // Scan all characters one
+                // by one
+                while (i < str.Length)
+                {
+                    // If next character is a separator,
+                    // set the state as OUT
+                    if (str[i] == ' ' || str[i] == '\n' ||
+                                          str[i] == '\t')
+                        state = OUT;
+
+
+                    // If next character is not a word
+                    // separator and state is OUT, then
+                    // set the state as IN and increment
+                    // word count
+                    else if (state == OUT)
+                    {
+                        state = IN;
+                        ++wc;
+                    }
+
+                    // Move to next character
+                    ++i;
+                }
             return count;
 
 
-          }
+          
         }
 
 
