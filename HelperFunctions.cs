@@ -179,7 +179,7 @@ namespace Lab3Q1
 
             sortedByValueList.Sort((s1, s2) => s2.Item1.CompareTo(s1.Item1));
 
-            PrintListofTuples(sortedByValueList);
+       //     PrintListofTuples(sortedByValueList);
 
             return sortedByValueList;
         }

@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ashwi\\Documents\\GitHub\\lab3\\Lab3\\Lab3.csproj",
+      "projectUniqueName": "C:\\Users\\ashwi\\Documents\\GitHub\\lab3\\Lab3.csproj",
       "projectName": "Lab3",
-      "projectPath": "C:\\Users\\ashwi\\Documents\\GitHub\\lab3\\Lab3\\Lab3.csproj",
+      "projectPath": "C:\\Users\\ashwi\\Documents\\GitHub\\lab3\\Lab3.csproj",
       "packagesPath": "C:\\Users\\ashwi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ashwi\\Documents\\GitHub\\lab3\\Lab3\\obj\\",
+      "outputPath": "C:\\Users\\ashwi\\Documents\\GitHub\\lab3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
