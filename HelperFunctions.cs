@@ -72,16 +72,18 @@ namespace Lab3Q1
                 //=================================================
                 // YOUR JOB TO ADD WORD COUNT INFORMATION TO MAP
                 //=================================================
-
+                
                 // Is the line a dialogueLine?
                 if (IsDialogueLine(line,ref character) != -1)
                 {
+                    
                     int index = IsDialogueLine(line, ref character);  //If yes, get the index and the character name.
 
                     if (index > 0 && character != null) //if index > 0 and character not empty
                     {
+                        
                         int wc=WordCount(ref line, index); //get the word counts
-
+                        mutex.WaitOne(); //modifying dictionary should be done by one thread at a time
                         if (wcounts.ContainsKey(character)) //if the key exists, update the word counts
                         { 
                                 wcounts[character] += wc;
@@ -90,11 +92,12 @@ namespace Lab3Q1
                         {
                             wcounts.Add(character, wc);
                         }
-                        
+                        mutex.ReleaseMutex();
 
                         //    reset the character
                     }
                 }
+                
             }
             // Close the file
             file.Close();
