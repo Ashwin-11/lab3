@@ -4,7 +4,7 @@ namespace Lab3Q1
 {
     public class WordCountTester
     {
-        static void Main()
+        static void unusedMain()
         {
           try {
 
@@ -105,6 +105,11 @@ namespace Lab3Q1
                 line = "I am Ashwin";
                 startIdx = 7;
                 expectedResults = 1;
+                WCTester(line, startIdx, expectedResults);
+
+                line = "I a m A s hw i n";
+                startIdx = 4;
+                expectedResults = 6;
                 WCTester(line, startIdx, expectedResults);
 
             } catch(UnitTestException e) {

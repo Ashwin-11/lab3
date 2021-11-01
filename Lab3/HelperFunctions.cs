@@ -76,6 +76,7 @@ namespace Lab3Q1
                //=================================================
 
                  // Is the line a dialogueLine?
+
                  //    If yes, get the index and the character name.
                  //      if index > 0 and character not empty
                  //        get the word counts
@@ -152,14 +153,25 @@ namespace Lab3Q1
          * @param wcounts a map of character -> word count
          * @return sorted vector of {character, word count} pairs
          */
-      //  public static List<Tuple<int, string>> SortCharactersByWordcount(Dictionary<string, int> wordcount)
-       // {
+        public static List<Tuple<int, string>> SortCharactersByWordcount(Dictionary<string, int> wordcount)
+        {
+            // Implement sorting by word count here
+            List<Tuple<int, string>> sortedByValueList= new List<Tuple<int, string>>();
+            Tuple<int, string> temp;
 
-          // Implement sorting by word count here
+            foreach (KeyValuePair<string,int> pairItem in wordcount)
+            {
+                temp = new Tuple<int, string>(pairItem.Value,pairItem.Key);
+                sortedByValueList.Add(temp);
+            }
 
-          //  return sortedByValueList;
+            sortedByValueList.Sort((s1, s2) => s2.Item1.CompareTo(s1.Item1));
 
-       // }
+            PrintListofTuples(sortedByValueList);
+
+            return sortedByValueList;
+        }
+
 
 
         /**
@@ -171,7 +183,13 @@ namespace Lab3Q1
         public static void PrintListofTuples(List<Tuple<int, string>> sortedList)
         {
 
-          // Implement printing here
+            // Implement printing here
+
+            foreach (Tuple<int, string> tuple in sortedList)
+            {
+                Console.WriteLine("Word Count:"+tuple.Item1 + ", Character:" + tuple.Item2);
+            }
+
 
         }
     }

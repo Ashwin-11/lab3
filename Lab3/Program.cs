@@ -7,14 +7,16 @@ namespace Lab3Q1
 {
     class Program
     {
-        static void unused(string[] args)
+        static void Main(string[] args)
         {
           // map and mutex for thread safety
           Mutex mutex = new Mutex();
-          Dictionary<string, int> wcountsSingleThread = new Dictionary<string, int>();
+            //Dictionary<string, int> wcountsSingleThread = new Dictionary<string, int>();
+
+            Dictionary<string, int> wcountsSingleThread = new Dictionary<string, int> { { "d", 1}, { "b", 55 }, { "a", 6 }, { "e", 33 } };
 
 
-          var filenames = new List<string> {
+            var filenames = new List<string> {
                 "../../data/shakespeare_antony_cleopatra.txt",
                 "../../data/shakespeare_hamlet.txt",
                 "../../data/shakespeare_julius_caesar.txt",
@@ -27,12 +29,12 @@ namespace Lab3Q1
                 "../../data/shakespeare_romeo_and_juliet.txt",
            };
 
-           //=============================================================
-           // YOUR IMPLEMENTATION HERE TO COUNT WORDS IN SINGLE THREAD
-           //=============================================================
+            //=============================================================
+            // YOUR IMPLEMENTATION HERE TO COUNT WORDS IN SINGLE THREAD
+            //=============================================================
 
 
-
+            HelperFunctions.SortCharactersByWordcount(wcountsSingleThread);
 
            Console.WriteLine( "SingleThread is Done!");
            //=============================================================
