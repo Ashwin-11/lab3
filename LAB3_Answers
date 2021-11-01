@@ -4,10 +4,29 @@ Questions:
 
 How can you test your program without needing to manually go through all the dialogue in Shakespeare's plays?
 
+We can use a text editor like word/ google docs etc to more easily count the different characters in the play by using the "find" functions. You could also try looking up how 
+many words each character speaks while looking at the play information online if it's available. 
+
 Has writing this code multithreaded helped in any way? Show some numbers in your observations. If your answer is no, under what conditions can multithreading help?
 
-Single Threading: The (Character, Word count) pairs obtained for Word counts just below and above 3000 are as follows:
+Number of files/ Threads -10 , Single thread Time -212 ms, Multi threaded time- 529 ms 
+Number of files/ Threads -21 , Single thread Time -567 ms, Multi threaded time- 1 sec 32 ms 
+Number of files/ Threads -33 , Single thread Time -644 ms, Multi threaded time- 1 sec 214 ms 
 
+Multithreading has not made a sizeable impact in the time taken to process the files as seen by the fact that the multithreaded time is always around double the
+single threaded time taken to process the files. Multithreading does not always help improve performance, as a result it is probably important to measure its impact when 
+implementing it. In Lab 2, multithreading became beneficial only when processing a large number of files. Therefore, if we increase the 
+number of files to a larger number (maybe over a 100 or 1000?), we are more likely to see some benefit.
+
+As written, if a character in one play has the same name as a character in another -- e.g. King -- it will treat them as the same and artificially increase the word count. 
+How can you modify your code to treat them as separate, but still store all characters in the single dictionary (you do not need to implement this... just think 
+about how you would do it)?
+
+If we want to account for characters with the same name across different plays/files, the solution that makes the most sense to me is to keep track of the filename/play as 
+part of your code. For example, you could pass a reference number for each play to the "countCharacterWords" function. Then you could append that reference number to each
+character in the same play/file. You could also track the filename/play within the dictionary itself by having a Dictionary<string, string, int> type of structure.
+
+The (Character, Word count) pairs obtained for Word counts just below and above 3000 are as follows for reference:
 Word Count:11653, Character:Ham
 Word Count:8538, Character:ANTONY
 Word Count:8376, Character:IAGO
@@ -24,7 +43,7 @@ Word Count:3718, Character:CASSIUS
 Word Count:3610, Character:Bene
 Word Count:2963, Character:CAPULET
 
-As written, if a character in one play has the same name as a character in another -- e.g. King -- it will treat them as the same and artificially increase the word count. 
-How can you modify your code to treat them as separate, but still store all characters in the single dictionary (you do not need to implement this... just think 
-about how you would do it)?
+The same word counts are obtained for single and multithreading.
+
+
 
