@@ -56,9 +56,7 @@ namespace Lab3Q1
         * @param mutex mutex for protected access to the shared wcounts map
         * @param wcounts a shared map from character -> word count
         */
-        public static void CountCharacterWords(string filename,
-                                 Mutex mutex,
-                                 Dictionary<string, int> wcounts)
+        public static void CountCharacterWords(string filename, Mutex mutex, Dictionary<string, int> wcounts)
         {
 
             //===============================================
@@ -71,21 +69,35 @@ namespace Lab3Q1
 
              while ((line = file.ReadLine()) != null)
              {
-               //=================================================
-               // YOUR JOB TO ADD WORD COUNT INFORMATION TO MAP
-               //=================================================
+                //=================================================
+                // YOUR JOB TO ADD WORD COUNT INFORMATION TO MAP
+                //=================================================
 
-                 // Is the line a dialogueLine?
+                // Is the line a dialogueLine?
+                if (IsDialogueLine(line,ref character) != -1)
+                {
+                    int index = IsDialogueLine(line, ref character);  //If yes, get the index and the character name.
 
-                 //    If yes, get the index and the character name.
-                 //      if index > 0 and character not empty
-                 //        get the word counts
-                 //          if the key exists, update the word counts
-                 //          else add a new key-value to the dictionary
-                 //    reset the character
+                    if (index > 0 && character != null) //if index > 0 and character not empty
+                    {
+                        int wc=WordCount(ref line, index); //get the word counts
 
-               }
-               // Close the file
+                        if (wcounts.ContainsKey(character)) //if the key exists, update the word counts
+                        { 
+                                wcounts[character] += wc;
+                        }
+                        else    //else add a new key-value to the dictionary
+                        {
+                            wcounts.Add(character, wc);
+                        }
+                        
+
+                        //    reset the character
+                    }
+                }
+            }
+            // Close the file
+            file.Close();
         }
 
 
@@ -172,8 +184,6 @@ namespace Lab3Q1
             return sortedByValueList;
         }
 
-
-
         /**
          * Prints the List of Tuple<int, string>
          *
@@ -182,15 +192,11 @@ namespace Lab3Q1
          */
         public static void PrintListofTuples(List<Tuple<int, string>> sortedList)
         {
-
             // Implement printing here
-
             foreach (Tuple<int, string> tuple in sortedList)
             {
                 Console.WriteLine("Word Count:"+tuple.Item1 + ", Character:" + tuple.Item2);
             }
-
-
         }
     }
 }

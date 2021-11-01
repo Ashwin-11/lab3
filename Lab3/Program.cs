@@ -33,7 +33,7 @@ namespace Lab3Q1
             // YOUR IMPLEMENTATION HERE TO COUNT WORDS IN SINGLE THREAD
             //=============================================================
 
-
+            HelperFunctions.c
             HelperFunctions.SortCharactersByWordcount(wcountsSingleThread);
 
            Console.WriteLine( "SingleThread is Done!");
